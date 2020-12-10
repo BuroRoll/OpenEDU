@@ -1,0 +1,21 @@
+sql
+git
+javascript
+linux
+java
+python
+html
+css
+ms sql
+postgresql
+mysql
+php
+atlassian jira
+1с программирование
+c#
+adobe photoshop
+crm
+c++
+ms powerpoint
+jquery
+Алгоритмы
