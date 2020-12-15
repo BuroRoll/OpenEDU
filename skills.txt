@@ -1,21 +1,29 @@
-sql
-git
-javascript
-linux
-java
-python
-html
-css
-ms sql
-postgresql
-mysql
-php
-atlassian jira
-1с программирование
-c#
-adobe photoshop
-crm
-c++
-ms powerpoint
-jquery
-Алгоритмы
+SQL
+Тестирование
+Функциональное тестирование
+Atlassian Jira
+Java
+Git
+QA
+Тестирование пользовательского интерфейса
+Python
+Linux
+Test case
+Английский язык
+Проведение тестирований
+Регресионное тестирование
+XML
+MS SQL
+HTML
+Scrum
+Регресcионное тестирование
+Android
+JavaScript
+Atlassian Confluence
+Нагрузочное тестирование
+API
+REST
+iOS
+C#
+Selenium IDE
+CSS
