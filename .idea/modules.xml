@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/OpenEDUanalizator.iml" filepath="$PROJECT_DIR$/.idea/OpenEDUanalizator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CoursesAnalizator.iml" filepath="$PROJECT_DIR$/.idea/CoursesAnalizator.iml" />
     </modules>
   </component>
 </project>

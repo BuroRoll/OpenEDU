@@ -1,29 +1,21 @@
 SQL
-Тестирование
-Функциональное тестирование
+UML
+Системный анализ
+Разработка технических заданий
+Бизнес-анализ
+BPMN
 Atlassian Jira
-Java
-Git
-QA
-Тестирование пользовательского интерфейса
-Python
-Linux
-Test case
-Английский язык
-Проведение тестирований
-Регресионное тестирование
 XML
+MS Visio
 MS SQL
-HTML
-Scrum
-Регресcионное тестирование
-Android
-JavaScript
-Atlassian Confluence
-Нагрузочное тестирование
-API
+Постановка задач разработчикам
+Управление проектами
+SOAP
 REST
-iOS
-C#
-Selenium IDE
-CSS
+Аналитическое мышление
+Atlassian Confluence
+Английский язык
+Моделирование бизнес процессов
+Scrum
+MS Project
+Agile Project Management

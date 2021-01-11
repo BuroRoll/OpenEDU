@@ -1,4 +1,4 @@
-https://openedu.ru/course/spbu/DTBS/
-https://openedu.ru/course/spbstu/DATAM/
-https://openedu.ru/course/urfu/DATAINF/
-https://openedu.ru/course/ITMOUniversity/DATAN/
+https://openedu.ru/course/hse/PROCESS/
+https://openedu.ru/course/spbstu/BIGDATA/
+https://openedu.ru/course/urfu/SYSTENG/
+https://openedu.ru/course/hse/STATAN/

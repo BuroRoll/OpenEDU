@@ -1,6 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import time
 
 
 class Parser(object):
@@ -12,7 +13,12 @@ class Parser(object):
         resp = req.get(link, headers=head)
         start = resp.text.rfind('Программа курса</h2>')
         end = resp.text.rfind('<h2 id="result_knowledge">')
-        program = resp.text[start:end].replace('Программа курса</h2>', '')
+        program = resp.text[start:end].replace('Программа курса</h2>', '') \
+            .replace('.', '') \
+            .replace('<br>', '') \
+            .replace('<p>', '') \
+            .replace('</p>', '') \
+            .lower()
         return program
 
     @staticmethod
@@ -28,35 +34,63 @@ class Parser(object):
                 res.append(e.text)
         for elem in soup.find_all('button', class_='accordion__button js-accordion__button accordion__button--empty'):
             for e in elem.find_all('span'):
-                res.append(e.text)
-        return res
-
-    @staticmethod
-    def get_Stepik_program(link):
-        driver = webdriver.Chrome()
-        driver.get(link)
-        html = driver.page_source
-        driver.quit()
-        soup = BeautifulSoup(html, 'html.parser')
-        res = []
-        for elem in soup.find_all('button', class_='accordion__button js-accordion__button'):
-            for e in elem.find_all('span'):
-                res.append(e.text)
-        for elem in soup.find_all('button', class_='accordion__button js-accordion__button accordion__button--empty'):
-            for e in elem.find_all('span'):
-                res.append(e.text)
+                res.append(e.text.lower())
         return res
 
     def get_Stepik_program(self, link):
+        print(link)
         self.driver.get(link)
+        action = webdriver.ActionChains(self.driver)
         self.driver.implicitly_wait(10)
         e = self.driver.find_elements_by_xpath(
             '//div[@class="toc-promo__section"]')
-        print(len(e))
-        for i in e:
-            i.click()
-        # elem.click()
-        # html = self.driver.page_source
-        # self.driver.quit()
-        # soup = BeautifulSoup(html, 'html.parser')
-        # print(soup)
+        action.pause(2000)
+        while True:
+            try:
+                z = 0
+                for i, j in enumerate(e):
+                    j.click()
+                    action.pause(1000)
+                    z = i
+                if z == len(e) - 1:
+                    break
+            except Exception as err:
+                pass
+        time.sleep(4)
+        action.pause(5000)
+        html = self.driver.page_source
+        self.driver.quit()
+        soup = BeautifulSoup(html, 'html.parser')
+        res = []
+        for elem in soup.find_all('div', class_='toc-promo-lesson__title'):
+            data = elem.text \
+                .replace('\n', '') \
+                .replace('.', '') \
+                .lower()
+            res.append(data)
+
+        return res
+
+    def get_coursera_program(self, link):
+        head = {'user-agent': 'Chrome'}
+        resp = req.get(link, headers=head)
+        soup = BeautifulSoup(resp.content, 'html.parser')
+        res = []
+        for p in soup.find_all('div', class_='content-inner'):
+            res.append(p.text.replace('.', '').lower())
+        return res
+
+    def get_beonmax_program(self, link):
+        res = []
+        head = {'user-agent': 'Chrome'}
+        resp = req.get(link, headers=head)
+        resp.encoding = 'utf-8'
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        for p in soup.find_all('span', class_='prog-text'):
+            res.append(p.text.replace('.', '').lower())
+        return res
+
+
+
+
+
