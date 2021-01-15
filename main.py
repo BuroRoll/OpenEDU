@@ -88,12 +88,29 @@ def beonmax_analysis():
                         res[l] = [s]
     print(res)
 
+def geekbrains_analysis():
+    print('GeekBrains')
+    res = {}
+    c = open('geekbrains.txt')
+    for l in c.readlines():
+        par = parser.get_geekbrains_program(l)
+        for line in par:
+            for s in skills:
+                if s.lower() in line:
+                    if l in res:
+                        if s not in res.get(l):
+                            res.get(l).append(s)
+                    else:
+                        res[l] = [s]
+    print(res)
+
+
 def main():
     openEdu_analysis()
     skillBox_analysis()
-    # stepik_analysis() ????
     coursera_analysis()
     beonmax_analysis()
+    geekbrains_analysis()
 
 
 if __name__ == '__main__':

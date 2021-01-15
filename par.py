@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 
-
 from functools import partial
 from pathlib import Path
 
@@ -11,7 +10,6 @@ from selenium.webdriver.chrome.options import Options
 
 
 class Parser(object):
-
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -23,7 +21,6 @@ class Parser(object):
 
     driver = webdriver.Chrome(executable_path=str(driver_path))
     driver.quit()
-
 
     @staticmethod
     def get_Openedu_program(link):
@@ -106,4 +103,16 @@ class Parser(object):
         soup = BeautifulSoup(resp.text, 'html.parser')
         for p in soup.find_all('span', class_='prog-text'):
             res.append(p.text.replace('.', '').lower())
+        return res
+
+    def get_geekbrains_program(self, link):
+        res = []
+        head = {'user-agent': 'Chrome'}
+        resp = req.get(link, headers=head)
+        soup = BeautifulSoup(resp.content, 'html.parser')
+
+        for p in soup.find_all('div', class_='text-lg text-dark'):
+            res.append(p.text)
+        for p in soup.find_all('small', class_='text-muted text-md'):
+            res.append(p.text)
         return res
