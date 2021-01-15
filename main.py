@@ -43,13 +43,18 @@ def skillBox_analysis():
 
 def stepik_analysis():
     print('Stepik')
+    res = {}
     c = open('stepik.txt')
     for l in c.readlines():
         par = parser.get_Stepik_program(l)
         for line in par:
             for s in skills:
                 if s.lower() in line:
-                    print(l, s)
+                    if l in res:
+                        if s not in res.get(l):
+                            res.get(l).append(s)
+                    else:
+                        res[l] = [s]
 
 def coursera_analysis():
     print('Coursera')

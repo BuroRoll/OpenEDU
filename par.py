@@ -4,8 +4,26 @@ from selenium import webdriver
 import time
 
 
+from functools import partial
+from pathlib import Path
+
+from selenium.webdriver.chrome.options import Options
+
+
 class Parser(object):
-    driver = webdriver.Chrome()
+
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+    ROOT_DIR = Path(__file__).parents[0]
+    make_path = partial(Path.joinpath, ROOT_DIR)
+
+    driver_path = make_path('chromedriver.exe')
+
+    driver = webdriver.Chrome(executable_path=str(driver_path))
+    driver.quit()
+
 
     @staticmethod
     def get_Openedu_program(link):
