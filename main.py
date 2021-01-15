@@ -32,7 +32,7 @@ def skillBox_analysis():
         par = Parser().get_Skillbox_program(l)
         for line in par:
             for s in skills:
-                if re.findall(s.lower(), line):
+                if s.lower() in line:
                     if l in res:
                         if s not in res.get(l):
                             res.get(l).append(s)
@@ -64,7 +64,7 @@ def coursera_analysis():
         par = parser.get_coursera_program(l)
         for line in par:
             for s in skills:
-                if re.findall(s.lower(), line):
+                if s.lower() in line:
                     if l in res:
                         if s not in res.get(l):
                             res.get(l).append(s)
@@ -80,7 +80,7 @@ def beonmax_analysis():
         par = parser.get_beonmax_program(l)
         for line in par:
             for s in skills:
-                if re.findall(s.lower(), line):
+                if s.lower() in line:
                     if l in res:
                         if s not in res.get(l):
                             res.get(l).append(s)
