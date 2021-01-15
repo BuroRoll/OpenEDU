@@ -70,7 +70,6 @@ def coursera_analysis():
 def beonmax_analysis():
     print("BeonMax")
     res = {}
-    res2 = []
     c = open('beonmax.txt')
     for l in c.readlines():
         par = parser.get_beonmax_program(l)

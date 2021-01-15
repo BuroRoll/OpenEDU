@@ -89,8 +89,3 @@ class Parser(object):
         for p in soup.find_all('span', class_='prog-text'):
             res.append(p.text.replace('.', '').lower())
         return res
-
-
-
-
-
